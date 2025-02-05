@@ -3,5 +3,5 @@
 (function currentTimeAndDate() {
   const today = new Date();
 
-  console.log("Curent Time and Date", today.toLocaleString());
+  console.log("Current Time and Date", today.toLocaleString());
 })();
