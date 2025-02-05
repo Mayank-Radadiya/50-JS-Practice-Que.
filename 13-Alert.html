@@ -1,0 +1,29 @@
+<!-- displayed an alert when the button clicked  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      height: 100px;
+      width: 200px;
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <main>
+      <button>Click Me!</button>
+    </main>
+  </body>
+
+  <script>
+    let btn = document.querySelector("button");
+    btn.addEventListener("click", () => {
+      btn.onclick(alert("Hello"));
+    });
+  </script>
+</html>
