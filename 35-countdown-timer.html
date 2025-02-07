@@ -1,0 +1,67 @@
+<!-- countdown timer  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+      }
+      h1 {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="currentTime"></h1>
+    <button>Clear Timer</button>
+    <div class="main">
+      <h1>Time :</h1>
+      <h1 class="minute"></h1>
+      <h1>:</h1>
+      <h1 class="second"></h1>
+    </div>
+  </body>
+  <script>
+    let H2minute = document.querySelector(".minute");
+    let H2second = document.querySelector(".second");
+    let currentTime = document.querySelector(".currentTime");
+    let button = document.querySelector("button");
+    let second = 0;
+    let minute = 0;
+    let interval; // Store the interval reference
+
+    function timer() {
+      interval = setInterval(() => {
+        if (second === 59) {
+          minute++;
+          second = 0;
+        } else {
+          second++;
+        }
+
+        let date = new Date();
+        currentTime.innerHTML = date.toLocaleString();
+
+        H2minute.innerHTML = minute;
+        H2second.innerHTML = second;
+      }, 1000);
+    }
+
+    // Start timer automatically
+    timer();
+
+    // Button click event to restart the timer
+    button.addEventListener("click", () => {
+      clearInterval(interval); // Stop the previous interval
+      second = 0;
+      minute = 0;
+      H2minute.innerHTML = minute;
+      H2second.innerHTML = second;
+      timer(); // Restart the timer
+    });
+  </script>
+</html>

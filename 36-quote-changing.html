@@ -1,0 +1,38 @@
+<!-- quote-changing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main"></div>
+  </body>
+  <script>
+    let main = document.getElementsByClassName("main")[0];
+    const quotes = [
+      "The only limit to our realization of tomorrow is our doubts of today.",
+      "Do what you can, with what you have, where you are.",
+      "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "Believe you can and you're halfway there.",
+      "Act as if what you do makes a difference. It does.",
+      "You are never too old to set another goal or to dream a new dream.",
+      "The future depends on what you do today.",
+      "It always seems impossible until it's done.",
+      "Opportunities don't happen. You create them.",
+      "Hardships often prepare ordinary people for an extraordinary destiny.",
+    ];
+
+    let index = 0;
+
+    function display() {
+      setInterval(() => {
+        main.innerHTML = quotes[index];
+        index = (index + 1) % quotes.length; // Loop back to 0 after the last quote
+      }, 1000); // Change every 2 seconds
+    }
+    display();
+  </script>
+</html>

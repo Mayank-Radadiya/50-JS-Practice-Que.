@@ -1,0 +1,28 @@
+<!-- Click event on a parent element (bubbling) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list-item">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <script>
+      let listItem = document.querySelector(".list-item");
+      listItem.addEventListener("click", (e) => {
+        let clickItem = e.target;
+
+        if (clickItem.tagName === "LI") {
+          console.log(clickItem.textContent);
+        }
+      });
+    </script>
+  </body>
+</html>

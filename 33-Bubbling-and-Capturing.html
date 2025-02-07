@@ -1,0 +1,47 @@
+<!-- Event Bubbling and Capturing in JavaScript
+When an event occurs on an element inside another element, the event can be handled at multiple levels. JavaScript provides two event propagation phases:
+
+Capturing Phase (Event Capturing / Trickling Down)
+The event starts from the root (document) and moves down to the target element.
+Bubbling Phase (Event Bubbling / Bubbling Up)
+The event starts at the target element and then bubbles up through its ancestors to the document.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #parent {
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        background-color: paleturquoise;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <button id="child">Click Me</button>
+    </div>
+
+    <script>
+      document.getElementById("parent").addEventListener(
+        "click",
+        () => console.log("Parent Clicked")
+        // false // Bubbling phase (default)
+      );
+
+      document.getElementById("child").addEventListener(
+        "click",
+        () => console.log("Child Clicked"),
+        // false
+        true // Capturing phase
+      );
+    </script>
+  </body>
+</html>

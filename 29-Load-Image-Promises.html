@@ -1,0 +1,43 @@
+<!-- // Promises to load multiple images -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="image"></div>
+    </main>
+  </body>
+
+  <script>
+    const imageContainer = document.querySelector(".image");
+
+const imageUrl = [
+  "https://images.unsplash.com/photo-1738597452982-5759da74f68d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8",
+  "https://images.unsplash.com/photo-1738667379581-a02dd0f0bfe5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1738571574302-3312deda0aa3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1Mnx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1738250733850-1507b75f5e2d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMTh8fHxlbnwwfHx8fHw%3D",
+  "https://images.unsplash.com/photo-1736690557984-333bfb83dd35?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNzF8fHxlbnwwfHx8fHw%3D",
+];
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Failed to load image: " + url));
+    img.src = url; 
+  });
+}
+
+Promise.all(imageUrl.map(loadImage))
+  .then((images) => {
+    images.forEach((img) => imageContainer.appendChild(img));
+  })
+  .catch((error) => console.error(error));
+
+  </script>
+</html>

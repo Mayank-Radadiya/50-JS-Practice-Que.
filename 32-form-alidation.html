@@ -1,0 +1,23 @@
+<!-- Implement Form validation... -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="formData">
+      <input type="text" name="email" required />
+      <input type="password" name="password" required />
+      <button type="submit" onsubmit="{onsubmit(e)}">Submit</button>
+    </form>
+  </body>
+  <script>
+    let form = document.getElementById("formData");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+  </script>
+</html>
